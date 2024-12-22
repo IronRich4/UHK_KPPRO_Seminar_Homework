@@ -18,6 +18,36 @@
             align-items: center;
         }
 
+        .navbar {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 2px solid red;
+            box-shadow: 0 0 10px red;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 5px 15px;
+            transition: all 0.3s;
+            text-shadow: 0 0 5px red;
+        }
+
+        .navbar a:hover {
+            color: gold;
+            text-shadow: 0 0 10px gold, 0 0 20px white;
+        }
+
         h1 {
             font-size: 4rem;
             color: white;
@@ -84,12 +114,26 @@
 
 </head>
 <body>
+
+<div class="navbar">
+    <a th:href="@{'/'}">Home</a>
+    <a th:href="@{'/wizards/'}">Witches and Wizards</a>
+    <a th:href="@{'/brooms/'}">Brooms</a>
+    <a href="#">Wands !!TBC!!</a>
+    <a href="#">Houses !!TBC!!</a>
+</div>
+
 <h1>Welcome to the Wizard's Workshop</h1>
 <h2>Where Any Witch or Wizard Their Broom Manage May</h2>
 
 <ul>
-    <li><a th:href="@{'/wizards/create/'}">Create a New Wizard</a></li>
-    <li><a th:href="@{'/brooms/create/'}">Create a New Broom</a></li>
+    <li><a th:href="@{'/brooms/'}">To see the list of all Brooms</a></li>
+    <li><a th:href="@{'/wizards/'}">To see the list of all Wizards</a></li>
+</ul>
+
+<ul>
+    <li><a th:href="@{'/brooms/create/'}">Step 1: Create a New Broom</a></li>
+    <li><a th:href="@{'/wizards/create/'}">Step 2: Create a New Wizard</a></li>
 </ul>
 
 </body>

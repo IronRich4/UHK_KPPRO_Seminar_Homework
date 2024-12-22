@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.Comment;
 
 import java.util.List;
 
@@ -16,14 +17,16 @@ public class Broom {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // stara se o autoinkrement
     private long id; // primarni klic musi byt v long
 
-    @NotBlank(message = "SPZ NESMI byt Prazdne")
-    @Size(min = 7, max = 7, message = "MAX 7 Znaku pro SPZ")
-    private String licensePlate;
-    private String color;
+    @NotBlank(message = "Name must not be Empty")
+    @Size(min = 3, max = 20, message = "Maximum is 20 Characters")
+    private String name;
 
-    @Min(value=2)
-    @Max(value=7)
-    private int numberOfSeats;
+    private String material;
+
+    @Min(value=10)
+    @Max(value=2000)
+    @Comment("Must be Faster than 10 KMH")
+    private int speed;
 
 //    @OneToOne(mappedBy = "broom")
 //    private Wizard wizard;
@@ -41,12 +44,12 @@ public class Broom {
 //    }
 
 
-    public String getLicensePlate() {
-        return licensePlate;
+    public String getName() {
+        return name;
     }
 
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
+    public void setName(String licensePlate) {
+        this.name = licensePlate;
     }
 
     public long getId() {
@@ -57,19 +60,19 @@ public class Broom {
         this.id = id;
     }
 
-    public String getColor() {
-        return color;
+    public String getMaterial() {
+        return material;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setMaterial(String material) {
+        this.material = material;
     }
 
-    public int getNumberOfSeats() {
-        return numberOfSeats;
+    public int getSpeed() {
+        return speed;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
+    public void setSpeed(int numberOfSeats) {
+        this.speed = numberOfSeats;
     }
 }

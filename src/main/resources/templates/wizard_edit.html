@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${edit ? 'Edit Wizard' : 'Create New Wizard'}"></title>
+    <title>Welcome Page</title>
     <style>
         body {
             background: linear-gradient(120deg, #000000, #330000);
@@ -16,6 +16,36 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+
+        .navbar {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 2px solid red;
+            box-shadow: 0 0 10px red;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 5px 15px;
+            transition: all 0.3s;
+            text-shadow: 0 0 5px red;
+        }
+
+        .navbar a:hover {
+            color: gold;
+            text-shadow: 0 0 10px gold, 0 0 20px white;
         }
 
         h1 {
@@ -83,45 +113,45 @@
     </style>
 
 </head>
-
 <body>
-<form></form>
+
+<div class="navbar">
+    <a th:href="@{'/'}">Home</a>
+    <a th:href="@{'/wizards/'}">Witches and Wizards</a>
+    <a th:href="@{'/brooms/'}">Brooms</a>
+    <a href="#">Wands !!TBC!!</a>
+    <a href="#">Houses !!TBC!!</a>
+</div>
+
 <h1 th:text="${edit ? 'Edit Wizard' : 'Create New Wizard'}"></h1>
 
 <form method="post" th:action="@{'/wizards/save/'}" th:object="${wizard}">
-
     <input type="hidden" th:field="*{id}">
-    Name: <input type="text" th:field="*{name}">
-    <span style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-<!--    <br>-->
-<!--    Color: <input type="text" th:field="*{color}">-->
-<!--    <span th:if="${#fields.hasErrors('color')}"></span>-->
-    <br>
-    Age: <input type="text" th:field="*{age}">
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" th:field="*{name}">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+
+    <label for="age">Age:</label>
+    <input type="text" id="age" th:field="*{age}">
     <span th:if="${#fields.hasErrors('age')}"></span>
 
-    <br>
-    Choose a Wand:
-    <select th:field="*{broom}">
-        <option th:each="c: ${brooms}" th:text="${c.licensePlate}" th:value="${c.id}"></option>
+    <label for="wand">Choose a Wand:</label>
+    <select id="wand" th:field="*{broom}">
+        <option th:each="c: ${brooms}" th:text="${c.name}" th:value="${c.id}"></option>
     </select>
 
-    <br>
-    Choose a Broom:
-    <select th:field="*{broom}">
-        <option th:each="c: ${brooms}" th:text="${c.licensePlate}" th:value="${c.id}"></option>
+    <label for="broom">Choose a Broom:</label>
+    <select id="broom" th:field="*{broom}">
+        <option th:each="c: ${brooms}" th:text="${c.name}" th:value="${c.id}"></option>
     </select>
 
-    <br>
-    Choose a Hogwarts House:
-    <select th:field="*{broom}">
-        <option th:each="c: ${brooms}" th:text="${c.licensePlate}" th:value="${c.id}"></option>
+    <label for="house">Choose a Hogwarts House:</label>
+    <select id="house" th:field="*{broom}">
+        <option th:each="c: ${brooms}" th:text="${c.name}" th:value="${c.id}"></option>
     </select>
 
     <input type="submit" value="Save">
-
 </form>
-
-
 </body>
 </html>

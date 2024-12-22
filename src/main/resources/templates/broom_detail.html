@@ -2,22 +2,139 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Detail of Broom</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #000000, #330000);
+            color: white;
+            font-family: 'Cormorant Garamond', serif;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 2px solid red;
+            box-shadow: 0 0 10px red;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 5px 15px;
+            transition: all 0.3s;
+            text-shadow: 0 0 5px red;
+        }
+
+        .navbar a:hover {
+            color: gold;
+            text-shadow: 0 0 10px gold, 0 0 20px white;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
+            margin: 0;
+            animation: glow 2s infinite alternate;
+        }
+        h2, li {
+            font-size: 2rem;
+            color: white;
+            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
+            margin: 0;
+            animation: glow 2s infinite alternate;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 2rem;
+            color: white;
+            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
+            margin: 0;
+            animation: glow 2s infinite alternate;
+        }
+
+        a:link {
+            color: white; /* Unvisited link */
+        }
+
+        a:visited {
+            color: gray; /* Visited link */
+        }
+
+        a:hover {
+            color: gold; /* Mouse over link */
+        }
+
+        a:active {
+            color: white; /* Selected link */
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
+            }
+            100% {
+                text-shadow: 0 0 20px white, 0 0 30px red, 0 0 40px red;
+            }
+        }
+
+        body:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1599743145781-5c498fb3e1d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080') no-repeat center center/cover;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
+    </style>
+
 </head>
 <body>
 
+<div class="navbar">
+    <a th:href="@{'/'}">Home</a>
+    <a th:href="@{'/wizards/'}">Witches and Wizards</a>
+    <a th:href="@{'/brooms/'}">Brooms</a>
+    <a href="#">Wands !!TBC!!</a>
+    <a href="#">Houses !!TBC!!</a>
+</div>
+
 <h1>Detail of Broom:</h1>
 
-<a th:href="@{'/brooms/delete/' + ${broom.id}}">DELETE CAR</a>
+<a th:href="@{'/brooms/delete/' + ${broom.id}}">Delete the Broom</a>
 
 <br>
 
-<a th:href="@{'/brooms/edit/' + ${broom.id}}">EDIT CAR</a>
+<a th:href="@{'/brooms/edit/' + ${broom.id}}">Edit the Broom</a>
 <br>
 
-<br><b>Color:</b> <span th:text="${broom.color}"></span>
-<br><b>Number Of Seats:</b> <span th:text="${broom.numberOfSeats}"></span>
-<br><b>Licence Plate:</b> <span th:text="${broom.licensePlate}"></span>
+<br><b>Color:</b> <span th:text="${broom.material}"></span>
+<br><b>Number Of Seats:</b> <span th:text="${broom.speed}"></span>
+<br><b>Licence Plate:</b> <span th:text="${broom.name}"></span>
 
 </body>
 </html>
