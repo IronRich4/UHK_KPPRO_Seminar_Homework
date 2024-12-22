@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail of Wizard</title>
+</head>
+<body>
+
+<h1>Detail of Wizard:</h1>
+
+<a th:href="@{'/wizards/delete/' + ${wizard.id}}">DELETE DRIVER</a>
+
+<br>
+
+<a th:href="@{'/wizards/edit/' + ${wizard.id}}">EDIT DRIVER</a>
+<br>
+
+<br><b>Number Of Seats:</b> <span th:text="${wizard.age}"></span>
+<br><b>Name:</b> <span th:text="${wizard.name}"></span>
+<br><b>Car:</b> <span th:text="${wizard.broom.licensePlate}"></span>
+
+</body>
+</html>

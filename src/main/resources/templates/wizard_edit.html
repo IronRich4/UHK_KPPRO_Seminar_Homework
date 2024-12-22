@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
+    <title th:text="${edit ? 'Edit Wizard' : 'Create New Wizard'}"></title>
     <style>
         body {
             background: linear-gradient(120deg, #000000, #330000);
@@ -83,14 +83,45 @@
     </style>
 
 </head>
-<body>
-<h1>Welcome to the Wizard's Workshop</h1>
-<h2>Where Any Witch or Wizard Their Broom Manage May</h2>
 
-<ul>
-    <li><a th:href="@{'/wizards/create/'}">Create a New Wizard</a></li>
-    <li><a th:href="@{'/brooms/create/'}">Create a New Broom</a></li>
-</ul>
+<body>
+<form></form>
+<h1 th:text="${edit ? 'Edit Wizard' : 'Create New Wizard'}"></h1>
+
+<form method="post" th:action="@{'/wizards/save/'}" th:object="${wizard}">
+
+    <input type="hidden" th:field="*{id}">
+    Name: <input type="text" th:field="*{name}">
+    <span style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+<!--    <br>-->
+<!--    Color: <input type="text" th:field="*{color}">-->
+<!--    <span th:if="${#fields.hasErrors('color')}"></span>-->
+    <br>
+    Age: <input type="text" th:field="*{age}">
+    <span th:if="${#fields.hasErrors('age')}"></span>
+
+    <br>
+    Choose a Wand:
+    <select th:field="*{broom}">
+        <option th:each="c: ${brooms}" th:text="${c.licensePlate}" th:value="${c.id}"></option>
+    </select>
+
+    <br>
+    Choose a Broom:
+    <select th:field="*{broom}">
+        <option th:each="c: ${brooms}" th:text="${c.licensePlate}" th:value="${c.id}"></option>
+    </select>
+
+    <br>
+    Choose a Hogwarts House:
+    <select th:field="*{broom}">
+        <option th:each="c: ${brooms}" th:text="${c.licensePlate}" th:value="${c.id}"></option>
+    </select>
+
+    <input type="submit" value="Save">
+
+</form>
+
 
 </body>
 </html>

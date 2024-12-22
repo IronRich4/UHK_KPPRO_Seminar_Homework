@@ -4,13 +4,10 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-
-import java.util.List;
 
 @Entity
-@Table(name= "drivers")
-public class Driver {
+@Table(name= "wizards")
+public class Wizard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // stara se o autoinkrement
@@ -25,11 +22,11 @@ public class Driver {
     private int age;
 
 //    @OneToOne
-//    private Car car;
+//    private Broom broom;
 
     //vlastnici strana
     @ManyToOne
-    private Car car;
+    private Broom broom;
 
     public long getId() {
         return id;
@@ -55,12 +52,12 @@ public class Driver {
         this.age = age;
     }
 
-    public Car getCar() {
-        return car;
+    public Broom getBroom() {
+        return broom;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setBroom(Broom broom) {
+        this.broom = broom;
     }
 }
 

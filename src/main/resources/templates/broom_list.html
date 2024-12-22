@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of All Brooms</title>
+</head>
+<body>
+
+<h1>List of all Brooms:</h1>
+
+<a th:href="@{'/brooms/create/'}">CREATE A NEW BROOM</a>
+
+<ul>
+    <li th:each="broom: ${brooms}">
+        <a th:text="${broom.licensePlate}" th:href="@{'/brooms/detail/' + ${broom.id}}">
+
+        </a></li>
+</ul>
+
+</body>
+</html>

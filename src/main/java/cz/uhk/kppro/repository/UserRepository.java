@@ -1,6 +1,5 @@
 package cz.uhk.kppro.repository; // komunikace mezi vrstvami DATASOURCE a SERVICE
 
-import cz.uhk.kppro.model.Car;
 import cz.uhk.kppro.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 

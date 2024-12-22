@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail of Broom</title>
+</head>
+<body>
+
+<h1>Detail of Broom:</h1>
+
+<a th:href="@{'/brooms/delete/' + ${broom.id}}">DELETE CAR</a>
+
+<br>
+
+<a th:href="@{'/brooms/edit/' + ${broom.id}}">EDIT CAR</a>
+<br>
+
+<br><b>Color:</b> <span th:text="${broom.color}"></span>
+<br><b>Number Of Seats:</b> <span th:text="${broom.numberOfSeats}"></span>
+<br><b>Licence Plate:</b> <span th:text="${broom.licensePlate}"></span>
+
+</body>
+</html>

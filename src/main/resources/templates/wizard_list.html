@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of All Wizards</title>
+</head>
+<body>
+
+<h1>List of all Wizards:</h1>
+
+<a th:href="@{'/wizards/create/'}">CREATE A NEW WIZARD</a>
+
+<ul>
+    <li th:each="wizard: ${wizards}">
+        <a th:text="${wizard.name}" th:href="@{'/wizards/detail/' + ${wizard.id}}">
+
+        </a></li>
+</ul>
+
+</body>
+</html>

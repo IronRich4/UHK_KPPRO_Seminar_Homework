@@ -1,10 +1,9 @@
 package cz.uhk.kppro.repository; // komunikace mezi vrstvami DATASOURCE a SERVICE
 
-import cz.uhk.kppro.model.Car;
-import cz.uhk.kppro.model.Driver;
+import cz.uhk.kppro.model.Wizard;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DriverRepository extends JpaRepository<Driver, Long> {
+public interface WizardRepository extends JpaRepository<Wizard, Long> {
 
     // příklady případů užití :)
 

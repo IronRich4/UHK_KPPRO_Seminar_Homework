@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${edit ? 'Edit Car' : 'Create New Car'}"></title>
+    <title th:text="${edit ? 'Edit Broom' : 'Create New Broom'}"></title>
 </head>
 <body>
 <form></form>
-<h1 th:text="${edit ? 'Edit Car' : 'Create New Car'}"></h1>
+<h1 th:text="${edit ? 'Edit Broom' : 'Create New Broom'}"></h1>
 
-<form method="post" th:action="@{'/cars/save/'}" th:object="${car}">
+<form method="post" th:action="@{'/brooms/save/'}" th:object="${broom}">
 
     <input type="hidden" th:field="*{id}">
     Licence Plate: <input type="text" th:field="*{licensePlate}">

@@ -14,20 +14,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class KpproApplication {
 
     private UserService userService;
-
     private PasswordEncoder passwordEncoder;
 
     @Autowired
     public KpproApplication(UserService userService, PasswordEncoder passwordEncoder){
-        this.userService =userService;
+        this.userService = userService;
         this.passwordEncoder = passwordEncoder;
     }
 
     @Bean
     public CommandLineRunner demo() {
         return (args) -> {
-            addUser("admin", "heslo", "ADMIN");
-            addUser("user", "heslo", "USER");
+            addUser("admin", "adminHeslo", "ADMIN");
+            addUser("user", "userHeslo", "USER");
         };
     }
 

@@ -9,8 +9,8 @@ import jakarta.validation.constraints.Size;
 import java.util.List;
 
 @Entity
-@Table(name= "cars")
-public class Car {
+@Table(name= "brooms")
+public class Broom {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // stara se o autoinkrement
@@ -25,19 +25,19 @@ public class Car {
     @Max(value=7)
     private int numberOfSeats;
 
-//    @OneToOne(mappedBy = "car")
-//    private Driver driver;
+//    @OneToOne(mappedBy = "broom")
+//    private Wizard wizard;
 
     //vlastnena strana
-    @OneToMany(mappedBy = "car")
-    private List<Driver> drivers;
+    @OneToMany(mappedBy = "broom")
+    private List<Wizard> wizards;
 
-//    public Car(String color, int i, String s) {
+//    public Broom(String color, int i, String s) {
 //        this.color = color;
 //        this.numberOfSeats = i;
 //        this.licensePlate = s;
 //    }
-//    public Car(){
+//    public Broom(){
 //    }
 
 
