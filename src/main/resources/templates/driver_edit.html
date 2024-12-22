@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${edit ? 'Edit Driver' : 'Create New Driver'}"></title>
+</head>
+<body>
+<form></form>
+<h1 th:text="${edit ? 'Edit Driver' : 'Create New Driver'}"></h1>
+
+<form method="post" th:action="@{'/drivers/save/'}" th:object="${driver}">
+
+    <input type="hidden" th:field="*{id}">
+    Name: <input type="text" th:field="*{name}">
+    <span style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+<!--    <br>-->
+<!--    Color: <input type="text" th:field="*{color}">-->
+<!--    <span th:if="${#fields.hasErrors('color')}"></span>-->
+    <br>
+    Age: <input type="text" th:field="*{age}">
+    <span th:if="${#fields.hasErrors('age')}"></span>
+    <br>
+
+    <select th:field="*{car}">
+        <option th:each="c: ${cars}" th:text="${c.licensePlate}" th:value="${c.id}"></option>
+    </select>
+
+    <input type="submit" value="Save">
+
+</form>
+
+
+</body>
+</html>

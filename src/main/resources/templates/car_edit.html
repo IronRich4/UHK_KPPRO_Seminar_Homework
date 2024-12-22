@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${edit ? 'Edit Car' : 'Create New Car'}"></title>
+</head>
+<body>
+<form></form>
+<h1 th:text="${edit ? 'Edit Car' : 'Create New Car'}"></h1>
+
+<form method="post" th:action="@{'/cars/save/'}" th:object="${car}">
+
+    <input type="hidden" th:field="*{id}">
+    Licence Plate: <input type="text" th:field="*{licensePlate}">
+    <span style="color:red" th:if="${#fields.hasErrors('licensePlate')}" th:errors="*{licensePlate}"></span>
+    <br>
+    Color: <input type="text" th:field="*{color}">
+    <span th:if="${#fields.hasErrors('color')}"></span>
+    <br>
+    Number Of Seats: <input type="text" th:field="*{numberOfSeats}">
+    <span th:if="${#fields.hasErrors('numberOfSeats')}"></span>
+    <br>
+
+    <input type="submit" value="Save">
+
+</form>
+
+
+</body>
+</html>
