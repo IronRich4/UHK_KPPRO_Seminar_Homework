@@ -52,7 +52,6 @@ public class HouseController {
         }
         return "redirect:/houses/";
     }
-
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable long id) {
         houseService.deleteHouseById(id);

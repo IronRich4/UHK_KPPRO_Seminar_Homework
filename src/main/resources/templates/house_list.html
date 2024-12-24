@@ -111,6 +111,15 @@
             font-size: 0.9rem;
         }
 
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
+            }
+            100% {
+                text-shadow: 0 0 20px white, 0 0 30px red, 0 0 40px red;
+            }
+        }
+
         a {
             text-decoration: none;
             font-size: 2rem;
@@ -132,15 +141,6 @@
             transform: scale(1.1) rotate(-2deg);
         }
 
-        @keyframes glow {
-            0% {
-                text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
-            }
-            100% {
-                text-shadow: 0 0 20px white, 0 0 30px red, 0 0 40px red;
-            }
-        }
-
         body:before {
             content: '';
             position: absolute;
@@ -155,15 +155,13 @@
 
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
     </style>
-
 </head>
-
 <body>
 
 <div class="navbar">
     <a th:href="@{'/'}">Home</a>
     <a th:href="@{'/wizards/'}">Witches and Wizards</a>
-    <a th:href="@{'/brooms/'}">Brooms</a>
+    <a th:href="@{'/houses/'}">Houses</a>
     <a th:href="@{'/wands/'}">Wands</a>
     <a th:href="@{'/houses/'}">Houses</a>
 </div>
@@ -174,9 +172,8 @@
 
 <ul>
     <li th:each="house: ${houses}">
-        <a th:text="${house.name}" th:href="@{'/houses/detail/' + ${house.id}}">
-
-        </a></li>
+        <a th:text="${house.name}" th:href="@{'/houses/detail/' + ${house.id}}"></a>
+    </li>
 </ul>
 
 </body>

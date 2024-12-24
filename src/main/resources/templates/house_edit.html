@@ -157,34 +157,37 @@
     </style>
 
 </head>
+
 <body>
 
 <div class="navbar">
     <a th:href="@{'/'}">Home</a>
     <a th:href="@{'/wizards/'}">Witches and Wizards</a>
-    <a th:href="@{'/brooms/'}">Brooms</a>
+    <a th:href="@{'/houses/'}">Houses</a>
     <a th:href="@{'/wands/'}">Wands</a>
     <a th:href="@{'/houses/'}">Houses</a>
 </div>
 
+
 <h1 th:text="${edit ? 'Edit House' : 'Create New House'}"></h1>
 
 <form method="post" th:action="@{'/houses/save/'}" th:object="${house}">
+
     <input type="hidden" th:field="*{id}">
-
-    <label for="name">Name of this House:</label>
-    <input type="text" id="name" th:field="*{name}">
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-
-    <label for="patron">The House needs a Patron Ghost:</label>
-    <input type="text" id="patron" th:field="*{patron}">
-    <span th:if="${#fields.hasErrors('patron')}" th:errors="*{patron}"></span>
-
-    <label for="capacity">The Student Capacity:</label>
-    <input type="text" id="capacity" th:field="*{capacity}">
+    Name of the House: <input type="text" th:field="*{name}">
+    <span style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <br>
+    The Patron of this House is: <input type="text" th:field="*{patron}">
+    <span th:if="${#fields.hasErrors('patron')}"></span>
+    <br>
+    What is the Capacity of Students: <input type="text" th:field="*{capacity}">
     <span th:if="${#fields.hasErrors('capacity')}"></span>
+    <br>
 
     <input type="submit" value="Save">
+
 </form>
+
+
 </body>
 </html>

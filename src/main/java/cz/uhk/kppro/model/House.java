@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.Comment;
 
 import java.util.List;
 
@@ -16,29 +17,25 @@ public class House {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // stara se o autoinkrement
     private long id; // primarni klic musi byt v long
 
-    @NotBlank(message = "House Name Must Be Entered")
-    @Size(min = 3, max = 40, message = "Has to be at Least 3 Letters")
+    @NotBlank(message = "Name must not be Empty")
+    @Size(min = 3, max = 20, message = "Maximum is 40 Characters")
     private String name;
 
-    @NotBlank(message = "The House Needs a Patron")
+    @NotBlank(message = "The House Needs its Ghostly Patron")
+    @Size(min = 3, max = 20, message = "Maximum is 40 Characters")
     private String patron;
 
-    @Min(value = 1)
-    @Max(value = 250)
+    @Min(value=10)
+    @Max(value=2000)
+    @Comment("The House must be able to Accomodate Students")
     private int capacity;
+
 
     //vlastnena strana
     @OneToMany(mappedBy = "house")
     private List<Wizard> wizards;
 
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -46,6 +43,14 @@ public class House {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getPatron() {
@@ -63,6 +68,4 @@ public class House {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-
 }
-

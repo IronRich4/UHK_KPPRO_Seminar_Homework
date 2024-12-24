@@ -155,32 +155,30 @@
 
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
     </style>
-</head>
 
+</head>
 <body>
 
 <div class="navbar">
     <a th:href="@{'/'}">Home</a>
     <a th:href="@{'/wizards/'}">Witches and Wizards</a>
-    <a th:href="@{'/brooms/'}">Brooms</a>
+    <a th:href="@{'/houses/'}">Houses</a>
     <a th:href="@{'/wands/'}">Wands</a>
     <a th:href="@{'/houses/'}">Houses</a>
 </div>
 
 <h1>Detail of House:</h1>
 
-<a th:href="@{'/houses/delete/' + ${house.id}}">Delete House</a>
+<a th:href="@{'/houses/delete/' + ${house.id}}">Delete the House</a>
 
 <br>
 
-<a th:href="@{'/houses/edit/' + ${house.id}}">Edit House</a>
+<a th:href="@{'/houses/edit/' + ${house.id}}">Edit the House</a>
 <br>
 
 <br><b>Name:</b> <span th:text="${house.name}"></span>
-<br><b>Name:</b> <span th:text="${house.patron}"></span>
-<br><b>Age:</b> <span th:text="${house.capacity}"></span>
-
-
+<br><b>Patron:</b> <span th:text="${house.patron}"></span>
+<br><b>Capacity:</b> <span th:text="${house.capacity}"></span>
 
 </body>
 </html>

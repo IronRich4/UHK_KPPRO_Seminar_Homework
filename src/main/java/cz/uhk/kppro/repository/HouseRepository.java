@@ -4,11 +4,12 @@ import cz.uhk.kppro.model.House;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface HouseRepository extends JpaRepository<House, Long> {
+    Long Id(long id);   // ma připravené metody
 
     // příklady případů užití :)
 
-//    List<Car> getAllByColorContainsIgnoreCase(String color);
-//    Car getCarByColor(String color);
-//    List<Car> getCarsByNumberOfSeatsBetweenAndColorContainsIgnoreCase(String from, String to, String color);
+//    List<House> getAllByColorContainsIgnoreCase(String color);
+//    House getHouseByColor(String color);
+//    List<House> getHousesByNumberOfSeatsBetweenAndColorContainsIgnoreCase(String from, String to, String color);
 
 }

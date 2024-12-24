@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service    // Bez ANOTACE se nejdna o Java Bean
-public class HouseServiceImpl implements HouseService {
+public class HouseServiceImpl implements HouseService{
 
     private HouseRepository houseRepository;
 
