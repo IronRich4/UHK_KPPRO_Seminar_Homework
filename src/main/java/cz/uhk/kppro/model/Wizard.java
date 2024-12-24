@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.List;
+
 @Entity
 @Table(name= "wizards")
 public class Wizard {
@@ -27,6 +29,31 @@ public class Wizard {
     //vlastnici strana
     @ManyToOne
     private Broom broom;
+
+    //vlastnici strana
+    @ManyToOne
+    private Wand wand;
+
+    //vlastnici strana
+    @ManyToOne
+    private House house;
+
+
+    public Wand getWand() {
+        return wand;
+    }
+
+    public void setWand(Wand wand) {
+        this.wand = wand;
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
+    }
 
     public long getId() {
         return id;

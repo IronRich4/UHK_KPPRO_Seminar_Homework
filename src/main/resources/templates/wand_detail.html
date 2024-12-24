@@ -167,18 +167,17 @@
     <a th:href="@{'/houses/'}">Houses</a>
 </div>
 
-<h1>Detail of Broom:</h1>
+<h1>Detail of Wand:</h1>
 
-<a th:href="@{'/brooms/delete/' + ${broom.id}}">Delete the Broom</a>
+<a th:href="@{'/wands/delete/' + ${wand.id}}">Delete the Wand</a>
 
 <br>
 
-<a th:href="@{'/brooms/edit/' + ${broom.id}}">Edit the Broom</a>
+<a th:href="@{'/wands/edit/' + ${wand.id}}">Edit the Wand</a>
 <br>
 
-<br><b>Color:</b> <span th:text="${broom.material}"></span>
-<br><b>Number Of Seats:</b> <span th:text="${broom.speed}"></span>
-<br><b>Licence Plate:</b> <span th:text="${broom.name}"></span>
+<br><b>This Wand is Made out of:</b> <span th:text="${wand.material}"></span>
+<br><b>The Age of this Wand in Years  is:</b> <span th:text="${wand.age}"></span>
 
 </body>
 </html>

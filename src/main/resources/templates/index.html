@@ -16,6 +16,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            overflow: auto;
         }
 
         .navbar {
@@ -52,40 +53,83 @@
             font-size: 4rem;
             color: white;
             text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
-            margin: 0;
+            margin: 20px 0;
             animation: glow 2s infinite alternate;
         }
-        h2, li {
-            font-size: 2rem;
+
+        form {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid red;
+            border-radius: 15px;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 15px red;
+        }
+
+        label, input, select {
+            display: block;
+            width: 100%;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
             color: white;
-            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
-            margin: 0;
-            animation: glow 2s infinite alternate;
+            background: none;
+            border: none;
+            border-bottom: 1px solid red;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-bottom: 2px solid white;
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(45deg, red, black);
+            color: white;
+            border: 2px solid red;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px red, 0 0 30px white;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(45deg, black, red);
+            color: white;
+            box-shadow: 0 0 20px black, 0 0 40px white;
+            transform: scale(1.1);
+        }
+
+        span {
+            color: gold;
+            font-size: 0.9rem;
         }
 
         a {
             text-decoration: none;
             font-size: 2rem;
             color: white;
-            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
-            margin: 0;
-            animation: glow 2s infinite alternate;
-        }
-
-        a:link {
-            color: white; /* Unvisited link */
-        }
-
-        a:visited {
-            color: gray; /* Visited link */
+            padding: 10px 20px;
+            border: 2px solid red;
+            border-radius: 10px;
+            background: linear-gradient(45deg, black, red);
+            box-shadow: 0 0 10px red, 0 0 20px white;
+            text-shadow: 0 0 5px red, 0 0 10px white;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
         a:hover {
-            color: gold; /* Mouse over link */
-        }
-
-        a:active {
-            color: white; /* Selected link */
+            color: white;
+            background: linear-gradient(45deg, red, black);
+            box-shadow: 0 0 20px black, 0 0 40px white;
+            transform: scale(1.1) rotate(-2deg);
         }
 
         @keyframes glow {
@@ -119,21 +163,27 @@
     <a th:href="@{'/'}">Home</a>
     <a th:href="@{'/wizards/'}">Witches and Wizards</a>
     <a th:href="@{'/brooms/'}">Brooms</a>
-    <a href="#">Wands !!TBC!!</a>
-    <a href="#">Houses !!TBC!!</a>
+    <a th:href="@{'/wands/'}">Wands</a>
+    <a th:href="@{'/houses/'}">Houses</a>
 </div>
 
-<h1>Welcome to the Wizard's Workshop</h1>
-<h2>Where Any Witch or Wizard Their Broom Manage May</h2>
+<h1>Welcome to the Wizard's Common Room</h1>
+<h2>Where Any Witch or Wizard Their Equipment Manage May</h2>
 
-<ul>
-    <li><a th:href="@{'/brooms/'}">To see the list of all Brooms</a></li>
-    <li><a th:href="@{'/wizards/'}">To see the list of all Wizards</a></li>
-</ul>
+<!--<ul>-->
+<!--    <li><a th:href="@{'/brooms/'}">To see the list of all Brooms</a></li>-->
+<!--    <li><a th:href="@{'/wands/'}">To see the list of all Wands</a></li>-->
+<!--    <li><a th:href="@{'/wizards/'}">To see the list of all Wizards</a></li>-->
+<!--    <li><a th:href="@{'/'}">To see the list of all Houses</a></li>-->
+<!--</ul>-->
+
+<h2>If You are New here, Follow the Steps Below:</h2>
 
 <ul>
     <li><a th:href="@{'/brooms/create/'}">Step 1: Create a New Broom</a></li>
-    <li><a th:href="@{'/wizards/create/'}">Step 2: Create a New Wizard</a></li>
+    <li><a th:href="@{'/wands/create/'}">Step 2: Create a New Wand</a></li>
+    <li><a th:href="@{'/houses/create/'}">Step 3: Create a New House</a></li>
+    <li><a th:href="@{'/wizards/create/'}">Step 4: Create a New Wizard</a></li>
 </ul>
 
 </body>

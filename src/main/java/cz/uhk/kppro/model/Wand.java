@@ -10,8 +10,8 @@ import org.hibernate.annotations.Comment;
 import java.util.List;
 
 @Entity
-@Table(name= "brooms")
-public class Broom {
+@Table(name= "wands")
+public class Wand {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // stara se o autoinkrement
@@ -19,31 +19,28 @@ public class Broom {
 
     @NotBlank(message = "Name must not be Empty")
     @Size(min = 3, max = 20, message = "Maximum is 20 Characters")
-    private String name;
-
     private String material;
 
-    @Min(value=10)
-    @Max(value=2000)
-    @Comment("Must be Faster than 10 KMH")
-    private int speed;
+    @Min(value=1)
+    @Max(value=1000)
+    @Comment("Must be Older than 0 Years")
+    private int age;
 
-//    @OneToOne(mappedBy = "broom")
+//    @OneToOne(mappedBy = "wand")
 //    private Wizard wizard;
 
     //vlastnena strana
-    @OneToMany(mappedBy = "broom")
+    @OneToMany(mappedBy = "wand")
     private List<Wizard> wizards;
 
+//    public Wand(String color, int i, String s) {
+//        this.color = color;
+//        this.numberOfSeats = i;
+//        this.licensePlate = s;
+//    }
+//    public Wand(){
+//    }
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public long getId() {
         return id;
@@ -61,11 +58,19 @@ public class Broom {
         this.material = material;
     }
 
-    public int getSpeed() {
-        return speed;
+    public int getAge() {
+        return age;
     }
 
-    public void setSpeed(int numberOfSeats) {
-        this.speed = numberOfSeats;
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public List<Wizard> getWizards() {
+        return wizards;
+    }
+
+    public void setWizards(List<Wizard> wizards) {
+        this.wizards = wizards;
     }
 }

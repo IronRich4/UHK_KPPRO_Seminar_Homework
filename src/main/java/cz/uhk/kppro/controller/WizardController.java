@@ -3,6 +3,8 @@ package cz.uhk.kppro.controller;
 import cz.uhk.kppro.model.Wizard;
 import cz.uhk.kppro.repository.WizardRepository;
 import cz.uhk.kppro.service.BroomService;
+import cz.uhk.kppro.service.HouseService;
+import cz.uhk.kppro.service.WandService;
 import cz.uhk.kppro.service.WizardService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +21,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class WizardController {
     private WizardService wizardService;
     private BroomService broomService;
+    private WandService wandService;
+    private HouseService houseService;
 
     @Autowired
-    public WizardController(WizardService wizardService, WizardRepository wizardRepository, BroomService broomService) {
+    public WizardController(WizardService wizardService, WizardRepository wizardRepository, BroomService broomService, WandService wandService, HouseService houseService) {
         this.wizardService = wizardService;
         this.broomService = broomService;
+        this.wandService = wandService;
+        this.houseService = houseService;
     }
 
 //    private ArrayList<Wizard> wizards = new ArrayList<>();        // repository pro preskoceni service vrstvy
@@ -56,6 +62,8 @@ public class WizardController {
         if(wizard != null){
             model.addAttribute("wizard", wizard);
             model.addAttribute("brooms", broomService.getAllBrooms());
+            model.addAttribute("wands", wandService.getAllWands());
+            model.addAttribute("houses", houseService.getAllHouses());
             model.addAttribute("edit", true);
             return "wizard_edit";
         }
@@ -70,6 +78,8 @@ public class WizardController {
     public String create(Model model){
         model.addAttribute("wizard", new Wizard());
         model.addAttribute("brooms", broomService.getAllBrooms());
+        model.addAttribute("wands", wandService.getAllWands());
+        model.addAttribute("houses", houseService.getAllHouses());
         model.addAttribute("edit", false);
         return "wizard_edit";
     }

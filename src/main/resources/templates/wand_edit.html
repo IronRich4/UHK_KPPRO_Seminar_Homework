@@ -157,6 +157,7 @@
     </style>
 
 </head>
+
 <body>
 
 <div class="navbar">
@@ -167,18 +168,23 @@
     <a th:href="@{'/houses/'}">Houses</a>
 </div>
 
-<h1>Detail of Broom:</h1>
 
-<a th:href="@{'/brooms/delete/' + ${broom.id}}">Delete the Broom</a>
+<h1 th:text="${edit ? 'Edit Wand' : 'Create New Wand'}"></h1>
 
-<br>
+<form method="post" th:action="@{'/wands/save/'}" th:object="${wand}">
 
-<a th:href="@{'/brooms/edit/' + ${broom.id}}">Edit the Broom</a>
-<br>
+    <input type="hidden" th:field="*{id}">
+    Magical Material: <input type="text" th:field="*{material}">
+    <span th:if="${#fields.hasErrors('material')}"></span>
+    <br>
+    How Old is this Wand: <input type="text" th:field="*{age}">
+    <span th:if="${#fields.hasErrors('age')}"></span>
+    <br>
 
-<br><b>Color:</b> <span th:text="${broom.material}"></span>
-<br><b>Number Of Seats:</b> <span th:text="${broom.speed}"></span>
-<br><b>Licence Plate:</b> <span th:text="${broom.name}"></span>
+    <input type="submit" value="Save">
+
+</form>
+
 
 </body>
 </html>

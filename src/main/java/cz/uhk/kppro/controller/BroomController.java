@@ -24,28 +24,23 @@ public class BroomController {
 
     @GetMapping("/")
     public String listAllBrooms(Model model) {
-//        Broom broom = new Broom("modrá",5,"8H02536");
-//        brooms.add(broom);
         model.addAttribute("brooms", broomService.getAllBrooms());
         return "broom_list";
     }
     @GetMapping("/detail/{id}")
     public String detail(Model model, @PathVariable long id) {
-//        Broom broom = brooms.get(id);
-//        broom.setId(id);
+
         Broom broom = broomService.getBroomById(id);
         if(broom != null){
             model.addAttribute("broom", broom);
             return "broom_detail";
         }
         return "redirect:/brooms/";
-//        model.addAttribute("broom", broom);
-//        return "broom_detail";
+
     }
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable long id) {
-//        Broom broom = brooms.get(id);
-//        broom.setId(id);
+
         Broom broom = broomService.getBroomById(id);
         if(broom != null){
             model.addAttribute("broom", broom);

@@ -111,15 +111,6 @@
             font-size: 0.9rem;
         }
 
-        @keyframes glow {
-            0% {
-                text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
-            }
-            100% {
-                text-shadow: 0 0 20px white, 0 0 30px red, 0 0 40px red;
-            }
-        }
-
         a {
             text-decoration: none;
             font-size: 2rem;
@@ -141,6 +132,15 @@
             transform: scale(1.1) rotate(-2deg);
         }
 
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
+            }
+            100% {
+                text-shadow: 0 0 20px white, 0 0 30px red, 0 0 40px red;
+            }
+        }
+
         body:before {
             content: '';
             position: absolute;
@@ -157,6 +157,7 @@
     </style>
 
 </head>
+
 <body>
 
 <div class="navbar">
@@ -167,18 +168,16 @@
     <a th:href="@{'/houses/'}">Houses</a>
 </div>
 
-<h1>Detail of Broom:</h1>
+<h1>List of all Houses:</h1>
 
-<a th:href="@{'/brooms/delete/' + ${broom.id}}">Delete the Broom</a>
+<a th:href="@{'/houses/create/'}">Create a New House</a>
 
-<br>
+<ul>
+    <li th:each="house: ${houses}">
+        <a th:text="${house.name}" th:href="@{'/houses/detail/' + ${house.id}}">
 
-<a th:href="@{'/brooms/edit/' + ${broom.id}}">Edit the Broom</a>
-<br>
-
-<br><b>Color:</b> <span th:text="${broom.material}"></span>
-<br><b>Number Of Seats:</b> <span th:text="${broom.speed}"></span>
-<br><b>Licence Plate:</b> <span th:text="${broom.name}"></span>
+        </a></li>
+</ul>
 
 </body>
 </html>

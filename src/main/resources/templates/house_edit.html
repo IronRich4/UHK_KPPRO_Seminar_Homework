@@ -167,18 +167,24 @@
     <a th:href="@{'/houses/'}">Houses</a>
 </div>
 
-<h1>Detail of Broom:</h1>
+<h1 th:text="${edit ? 'Edit House' : 'Create New House'}"></h1>
 
-<a th:href="@{'/brooms/delete/' + ${broom.id}}">Delete the Broom</a>
+<form method="post" th:action="@{'/houses/save/'}" th:object="${house}">
+    <input type="hidden" th:field="*{id}">
 
-<br>
+    <label for="name">Name of this House:</label>
+    <input type="text" id="name" th:field="*{name}">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
 
-<a th:href="@{'/brooms/edit/' + ${broom.id}}">Edit the Broom</a>
-<br>
+    <label for="patron">The House needs a Patron Ghost:</label>
+    <input type="text" id="patron" th:field="*{patron}">
+    <span th:if="${#fields.hasErrors('patron')}" th:errors="*{patron}"></span>
 
-<br><b>Color:</b> <span th:text="${broom.material}"></span>
-<br><b>Number Of Seats:</b> <span th:text="${broom.speed}"></span>
-<br><b>Licence Plate:</b> <span th:text="${broom.name}"></span>
+    <label for="capacity">The Student Capacity:</label>
+    <input type="text" id="capacity" th:field="*{capacity}">
+    <span th:if="${#fields.hasErrors('capacity')}"></span>
 
+    <input type="submit" value="Save">
+</form>
 </body>
 </html>

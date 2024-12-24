@@ -16,6 +16,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            overflow: auto;
         }
 
         .navbar {
@@ -52,40 +53,62 @@
             font-size: 4rem;
             color: white;
             text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
-            margin: 0;
+            margin: 20px 0;
             animation: glow 2s infinite alternate;
         }
-        h2, li {
-            font-size: 2rem;
+
+        form {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid red;
+            border-radius: 15px;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 15px red;
+        }
+
+        label, input, select {
+            display: block;
+            width: 100%;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
             color: white;
-            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
-            margin: 0;
-            animation: glow 2s infinite alternate;
+            background: none;
+            border: none;
+            border-bottom: 1px solid red;
+            padding: 5px;
+            box-sizing: border-box;
         }
 
-        a {
-            text-decoration: none;
-            font-size: 2rem;
+        input:focus, select:focus {
+            outline: none;
+            border-bottom: 2px solid white;
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(45deg, red, black);
             color: white;
-            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px white;
-            margin: 0;
-            animation: glow 2s infinite alternate;
+            border: 2px solid red;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px red, 0 0 30px white;
         }
 
-        a:link {
-            color: white; /* Unvisited link */
+        input[type="submit"]:hover {
+            background: linear-gradient(45deg, black, red);
+            color: white;
+            box-shadow: 0 0 20px black, 0 0 40px white;
+            transform: scale(1.1);
         }
 
-        a:visited {
-            color: gray; /* Visited link */
-        }
-
-        a:hover {
-            color: gold; /* Mouse over link */
-        }
-
-        a:active {
-            color: white; /* Selected link */
+        span {
+            color: gold;
+            font-size: 0.9rem;
         }
 
         @keyframes glow {
@@ -95,6 +118,27 @@
             100% {
                 text-shadow: 0 0 20px white, 0 0 30px red, 0 0 40px red;
             }
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 2rem;
+            color: white;
+            padding: 10px 20px;
+            border: 2px solid red;
+            border-radius: 10px;
+            background: linear-gradient(45deg, black, red);
+            box-shadow: 0 0 10px red, 0 0 20px white;
+            text-shadow: 0 0 5px red, 0 0 10px white;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        a:hover {
+            color: white;
+            background: linear-gradient(45deg, red, black);
+            box-shadow: 0 0 20px black, 0 0 40px white;
+            transform: scale(1.1) rotate(-2deg);
         }
 
         body:before {
@@ -111,7 +155,6 @@
 
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
     </style>
-
 </head>
 <body>
 
@@ -119,13 +162,13 @@
     <a th:href="@{'/'}">Home</a>
     <a th:href="@{'/wizards/'}">Witches and Wizards</a>
     <a th:href="@{'/brooms/'}">Brooms</a>
-    <a href="#">Wands !!TBC!!</a>
-    <a href="#">Houses !!TBC!!</a>
+    <a th:href="@{'/wands/'}">Wands</a>
+    <a th:href="@{'/houses/'}">Houses</a>
 </div>
 
 <h1>List of all Brooms:</h1>
 
-<a th:href="@{'/brooms/create/'}">CREATE A NEW BROOM</a>
+<a th:href="@{'/brooms/create/'}">Create a New Broom</a>
 
 <ul>
     <li th:each="broom: ${brooms}">
