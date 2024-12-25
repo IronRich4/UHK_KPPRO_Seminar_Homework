@@ -26,20 +26,10 @@ public class Wand {
     @Comment("Must be Older than 0 Years")
     private int age;
 
-//    @OneToOne(mappedBy = "wand")
-//    private Wizard wizard;
-
     //vlastnena strana
     @OneToMany(mappedBy = "wand")
     private List<Wizard> wizards;
 
-//    public Wand(String color, int i, String s) {
-//        this.color = color;
-//        this.numberOfSeats = i;
-//        this.licensePlate = s;
-//    }
-//    public Wand(){
-//    }
 
 
     public long getId() {

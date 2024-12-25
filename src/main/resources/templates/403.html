@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
+    <title>Restricted Access</title>
     <style>
         body {
             background: linear-gradient(120deg, #000000, #330000);
@@ -155,37 +155,10 @@
 
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
     </style>
-
 </head>
 <body>
-
-<div class="navbar">
-    <a th:href="@{'/'}">Home</a>
-    <a th:href="@{'/wizards/'}">Witches and Wizards</a>
-    <a th:href="@{'/brooms/'}">Brooms</a>
-    <a th:href="@{'/wands/'}">Wands</a>
-    <a th:href="@{'/houses/'}">Houses</a>
-    <a th:href="@{'/403'}">*Admin*</a>
-</div>
-
-<h1>Welcome to the Wizard's Common Room</h1>
-<h2>Where Any Witch or Wizard Their Equipment Manage May</h2>
-
-<!--<ul>-->
-<!--    <li><a th:href="@{'/brooms/'}">To see the list of all Brooms</a></li>-->
-<!--    <li><a th:href="@{'/wands/'}">To see the list of all Wands</a></li>-->
-<!--    <li><a th:href="@{'/wizards/'}">To see the list of all Wizards</a></li>-->
-<!--    <li><a th:href="@{'/'}">To see the list of all Houses</a></li>-->
-<!--</ul>-->
-
-<h2>If You are New here, Follow the Steps Below:</h2>
-
-<ul>
-    <li><a th:href="@{'/brooms/create/'}">Step 1: Create a New Broom</a></li>
-    <li><a th:href="@{'/wands/create/'}">Step 2: Create a New Wand</a></li>
-    <li><a th:href="@{'/houses/create/'}">Step 3: Create a New House</a></li>
-    <li><a th:href="@{'/wizards/create/'}">Step 4: Create a New Wizard</a></li>
-</ul>
-
+<h1>🔒 RESTRICTED ACCESS 🔒</h1>
+<p>This area is for <strong>Administrators</strong> only.</p>
+<p>If you are not authorized, <em>leave immediately</em>...</p>
 </body>
 </html>

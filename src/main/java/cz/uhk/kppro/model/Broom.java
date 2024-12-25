@@ -28,13 +28,9 @@ public class Broom {
     @Comment("Must be Faster than 10 KMH")
     private int speed;
 
-//    @OneToOne(mappedBy = "broom")
-//    private Wizard wizard;
-
     //vlastnena strana
     @OneToMany(mappedBy = "broom")
     private List<Wizard> wizards;
-
 
 
     public String getName() {

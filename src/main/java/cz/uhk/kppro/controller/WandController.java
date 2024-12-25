@@ -34,21 +34,18 @@ public class WandController {
     }
     @GetMapping("/detail/{id}")
     public String detail(Model model, @PathVariable long id) {
-//        Wand wand = wands.get(id);
-//        wand.setId(id);
+
         Wand wand = wandService.getWandById(id);
         if(wand != null){
             model.addAttribute("wand", wand);
             return "wand_detail";
         }
         return "redirect:/wands/";
-//        model.addAttribute("wand", wand);
-//        return "wand_detail";
+
     }
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable long id) {
-//        Wand wand = wands.get(id);
-//        wand.setId(id);
+
         Wand wand = wandService.getWandById(id);
         if(wand != null){
             model.addAttribute("wand", wand);

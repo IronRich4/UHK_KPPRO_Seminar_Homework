@@ -36,28 +36,23 @@ public class WizardController {
 
     @GetMapping("/")
     public String listAllWizards(Model model) {
-//        Wizard wizard = new Wizard("modrá",5,"8H02536");
-//        wizards.add(wizard);
+
         model.addAttribute("wizards", wizardService.getAllWizards());
         return "wizard_list";
     }
     @GetMapping("/detail/{id}")
     public String detail(Model model, @PathVariable long id) {
-//        Wizard wizard = wizards.get(id);
-//        wizard.setId(id);
+
         Wizard wizard = wizardService.getWizardById(id);
         if(wizard != null){
             model.addAttribute("wizard", wizard);
             return "wizard_detail";
         }
         return "redirect:/wizards/";
-//        model.addAttribute("wizard", wizard);
-//        return "wizard_detail";
     }
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable long id) {
-//        Wizard wizard = wizards.get(id);
-//        wizard.setId(id);
+
         Wizard wizard = wizardService.getWizardById(id);
         if(wizard != null){
             model.addAttribute("wizard", wizard);

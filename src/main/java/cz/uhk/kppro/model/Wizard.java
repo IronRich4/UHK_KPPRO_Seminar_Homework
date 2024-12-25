@@ -23,9 +23,6 @@ public class Wizard {
     @Max(value = 99)
     private int age;
 
-//    @OneToOne
-//    private Broom broom;
-
     //vlastnici strana
     @ManyToOne
     private Broom broom;

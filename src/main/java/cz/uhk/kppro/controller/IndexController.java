@@ -12,16 +12,21 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/403")
-    @ResponseBody
-    public String forbidden(){
-        return "ACCESS DENIED";
+    @GetMapping({ "/403"})
+    public String admin(){
+        return "403";
     }
 
-    @GetMapping("/admin")
-    @ResponseBody
-    public String admin(){
-        return "ADMIN Section";
-    }
+//    @GetMapping("/adminAccess")
+//    @ResponseBody
+//    public String forbidden(){
+//        return "adminAccess";
+//    }
+
+//    @GetMapping("/admin")
+//    @ResponseBody
+//    public String admin(){
+//        return "adminAccess";
+//    }
 
 }

@@ -36,7 +36,6 @@ public class House {
     private List<Wizard> wizards;
 
 
-
     public String getName() {
         return name;
     }
